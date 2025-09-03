@@ -1,0 +1,212 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Formulário de Adicionar Tarefa */
+.add-task-form {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.add-task-form h2 {
+  margin-top: 0;
+}
+
+.add-task-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-task-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.add-task-form button {
+  padding: 12px 20px;
+  border: none;
+  background-color: #282c34;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+  align-self: flex-start;
+}
+
+.add-task-form button:hover {
+  background-color: #4a505c;
+}
+
+/* Filtros e Lista de Tarefas */
+.task-list {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.filter-container span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.filter-container button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.filter-container button:hover {
+  background-color: #f0f0f0;
+}
+
+.filter-container button.active {
+  background-color: #282c34;
+  color: white;
+  border-color: #282c34;
+}
+
+.task-list h2 {
+  margin-top: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  text-align: left;
+  border-left-width: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.task-content {
+  flex-grow: 1;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-actions select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 0.9rem;
+}
+
+.task-actions .delete-btn {
+  padding: 8px 15px;
+  border: none;
+  background-color: #d9534f;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.task-actions .delete-btn:hover {
+  background-color: #c9302c;
+}
+
+.status-pendente {
+  border-left-color: #f0ad4e; /* Laranja */
+}
+
+.status-em-andamento {
+  border-left-color: #337ab7; /* Azul */
+}
+
+.status-concluída {
+  border-left-color: #5cb85c; /* Verde */
+}
+
+.task-item h3 {
+  margin-top: 0;
+}
+
+.error {
+  color: #d9534f; /* Vermelho */
+  font-weight: bold;
+}
+
+/* --- Estilos de Responsividade --- */
+@media (max-width: 768px) {
+  main {
+    padding: 0 15px;
+  }
+
+  .filter-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .task-actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
