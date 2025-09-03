@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './App.css';
 import TaskItem from './components/TaskItem';
@@ -13,11 +13,7 @@ function App() {
   const [newDescription, setNewDescription] = useState('');
   const [filterStatus, setFilterStatus] = useState('todas');
 
-  useEffect(() => {
-    fetchTasks();
-  }, [filterStatus]);
-
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     try {
       const params = filterStatus === 'todas' ? {} : { status: filterStatus };
       const response = await axios.get(`${API_BASE_URL}/tasks`, { params });
@@ -26,7 +22,11 @@ function App() {
       setError('Não foi possível carregar as tarefas. O backend está em execução?');
       console.error(err);
     }
-  };
+  }, [filterStatus]); // fetchTasks depende de filterStatus
+
+  useEffect(() => {
+    fetchTasks();
+  }, [fetchTasks]); // useEffect depende da função fetchTasks
 
   const handleAddTask = async (e) => {
     e.preventDefault();
